@@ -1,6 +1,4 @@
-# Let's create the README.md file with the content provided.
 
-readme_content = """
 # 🌤️ Realtime Weather App
 
 A fast, beautiful and modern weather app built using **React Native** and **Expo**. This app provides **realtime weather details** with advanced features like dynamic search, dark mode, and current location-based weather data.
@@ -52,8 +50,8 @@ Follow the instructions below to **fork, clone, and run** the app on your local 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/realtime-weather-app.git
-cd realtime-weather-app
+[git clone https://github.com/your-username/realtime-weather-app.git](https://github.com/Uday1004/Weather-App-React-native-expo.git)
+cd Weather-App-React-native-expo
 ```
 
 ### 2.  Install Dependencies
