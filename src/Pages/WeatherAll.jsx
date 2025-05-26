@@ -3,6 +3,7 @@ import { View, Text, Image, ScrollView } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { LocationContext } from "../Context/LocationContext"; // adjust path if needed]
 import GeoSunTimes from "./GeoSunTimes";
+import { getCustomWeatherImage } from "../Components/WeatherType";
 
 function WeatherAll() {
   const { currentLat, currentLong, currentCity } = useContext(LocationContext);
