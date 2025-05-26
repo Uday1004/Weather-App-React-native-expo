@@ -24,7 +24,7 @@ function Location() {
     getLocationPermission();
   }, []);
 
-  return <View></View>;
+  return;
 }
 
 export default Location;

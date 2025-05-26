@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { LocationContext } from "../Context/LocationContext"; // adjust path if needed]
+import GeoSunTimes from "./GeoSunTimes";
 
 function WeatherAll() {
   const { currentLat, currentLong, currentCity } = useContext(LocationContext);
@@ -16,13 +17,13 @@ function WeatherAll() {
         console.log("📍 Fetching weather for:", currentLat, currentLong);
 
         const currentRes = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLong}&units=metric&appid=f98e5ac5c7283411df8959a634616fd4`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLong}&units=metric&appid=apikey`
         );
         const current = await currentRes.json();
         setWeatherData(current);
 
         const forecastRes = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLat}&lon=${currentLong}&units=metric&appid=f98e5ac5c7283411df8959a634616fd4`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLat}&lon=${currentLong}&units=metric&appid=apikey`
         );
         const forecast = await forecastRes.json();
         setForecastData(forecast.list.slice(0, 5)); // Next 5 slots (~15 hours)
@@ -151,6 +152,10 @@ function WeatherAll() {
                 );
               })}
             </ScrollView>
+            <GeoSunTimes
+              sunrise={weatherData.sys.sunrise}
+              sunset={weatherData.sys.sunset}
+            />
           </View>
         </>
       )}

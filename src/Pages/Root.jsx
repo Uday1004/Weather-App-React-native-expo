@@ -41,7 +41,7 @@ function Main() {
     }
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${query},IN&limit=5&appid=f98e5ac5c7283411df8959a634616fd4`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${query},IN&limit=5&appid=apikey`
       );
       const data = await response.json();
       setSuggestions(data);
@@ -71,7 +71,7 @@ function Main() {
 
       try {
         const response = await fetch(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${currentCity},${cityState},IN&limit=1&appid=f98e5ac5c7283411df8959a634616fd4`
+          `http://api.openweathermap.org/geo/1.0/direct?q=${currentCity},${cityState},IN&limit=1&appid=apikey`
         );
         const data = await response.json();
         if (data.length > 0) {
