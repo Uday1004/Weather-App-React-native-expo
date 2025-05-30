@@ -13,7 +13,6 @@ function Location() {
         }
 
         const location = await Location.getCurrentPositionAsync({});
-        console.log("📍 Location:", location.coords);
         setLan(location.coords.latitude);
         setLong(location.coords.longitude);
       } catch (error) {

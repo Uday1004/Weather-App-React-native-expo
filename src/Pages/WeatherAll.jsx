@@ -18,13 +18,13 @@ function WeatherAll() {
         console.log("📍 Fetching weather for:", currentLat, currentLong);
 
         const currentRes = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLong}&units=metric&appid=apikey`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLong}&units=metric&appid=f98e5ac5c7283411df8959a634616fd4`
         );
         const current = await currentRes.json();
         setWeatherData(current);
 
         const forecastRes = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLat}&lon=${currentLong}&units=metric&appid=apikey`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLat}&lon=${currentLong}&units=metric&appid=f98e5ac5c7283411df8959a634616fd4`
         );
         const forecast = await forecastRes.json();
         setForecastData(forecast.list.slice(0, 5)); // Next 5 slots (~15 hours)
@@ -124,8 +124,8 @@ function WeatherAll() {
 
           <View className="mt-8">
             <View className="flex-row justify-between px-2 mb-2">
-              <Text className="text-white font-semibold">Previous</Text>
-              <Text className="text-white">Next</Text>
+              <Text className="text-white text-2xl font-semibold">Forcast</Text>
+              <Text className="text-white">Chekc Upcomign Hours</Text>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {forecastData.map((item, index) => {

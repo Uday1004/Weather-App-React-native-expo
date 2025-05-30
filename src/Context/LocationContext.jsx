@@ -9,11 +9,8 @@ export const LocationProvider = ({ children }) => {
   const [currentCity, setCurrentCity] = useState("NaN");
 
   const fetchCurrentLocation = async () => {
-    console.log("📍 fetchCurrentLocation() invoked");
-
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
-      console.log("🔐 Permission status:", status);
 
       if (status !== "granted") {
         alert("Permission to access location was denied");
@@ -23,7 +20,6 @@ export const LocationProvider = ({ children }) => {
       const {
         coords: { latitude, longitude },
       } = await Location.getCurrentPositionAsync({});
-      console.log("✅ Location fetched:", latitude, longitude);
 
       setCurrentLat(latitude);
       setCurrentLong(longitude);
@@ -32,12 +28,10 @@ export const LocationProvider = ({ children }) => {
         latitude,
         longitude,
       });
-      console.log("🗺️ Reverse geocode result:", geocode);
 
       const city =
         geocode?.city || geocode?.district || geocode?.region || "Unknown";
       setCurrentCity(city);
-      console.log("🏙️ City set to:", city);
     } catch (error) {
       console.error("❌ Error in fetchCurrentLocation:", error);
     }
@@ -46,7 +40,6 @@ export const LocationProvider = ({ children }) => {
   // Fetch location on mount
   useEffect(() => {
     fetchCurrentLocation();
-    console.log("📦 LocationContext mounted");
   }, []);
 
   return (
